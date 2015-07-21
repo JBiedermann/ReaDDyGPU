@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+corrct bias in - direction (warp order two)
+
+
+
+
+
+TODO's:
+
+change everything to float
+sm13
+
+check with increased max cutoff
+    - still correct with <32 particle per voxel?
+    - performance
+
+float3 -> coords etc.
+
+dynamic array size
+
+implement all forces
+particle radii in all forces / considerParticleRadius?
+
+read lattice bounds -> broken!
+
+use constant memory or texture
+
+page locked host memory for faster host-device transfer (+maybe async memcpy)
+
+optimization: wenn alle threads schleifenartig durch die partikellisten gehen, dann wiederholt die zweite warp-hälfte die berechnungen der ersten seriell
+
+/// //////////////////////////////////////////////////////////////////////////////////////////
+/// /
+/// TODO:
+///         - data structures
+///         - dynamic arrays (amortized linear runtime) +sort?
+///         - periodic boundaries
+///         - lattice + neighbor lists
+///         - usage of shared mem
+/// /
+/// //////////////////////////////////////////////////////////////////////////////////////////
+

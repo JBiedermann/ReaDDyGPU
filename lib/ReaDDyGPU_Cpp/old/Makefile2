@@ -1,0 +1,22 @@
+
+default: ReaDDy
+
+all : $(ALL_PROGS)
+
+# Treat all .cpp source files the same way.
+.cpp :
+	g++ $(CFLAGS) -I$(INCLUDE_DIR) $< -L$(LIB_DIR) $(LIBS) -o $*
+
+ReaDDy: ReaDDyGPU.cpp
+
+	g++ -c -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c -o Simulation.o Simulation.cpp 
+	g++ -c -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c -o PotentialParametersHandler.o XMLHandler/PotentialParametersHandler.cpp 
+	g++ -c -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c -o GroupParametersHandler.o XMLHandler/GroupParametersHandler.cpp 
+	g++ -c -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c -o ParticleParametersHandler.o XMLHandler/ParticleParametersHandler.cpp 
+	g++ -c -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c -o XMLReader.o XMLHandler/XMLReader.cpp 
+	g++ -O3 -I"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/include" -I"./" -L"./" -L"/home/mi/biederj/programs/xerces/xerces-c-3.1.1-x86_64-linux-gcc-3.4/lib" -lxerces-c ReaDDyGPU.cpp Simulation.o ParticleParametersHandler.o GroupParametersHandler.o PotentialParametersHandler.o XMLReader.o
+ 
+
+clean:
+
+

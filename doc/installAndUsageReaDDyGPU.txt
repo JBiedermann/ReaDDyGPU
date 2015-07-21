@@ -1,0 +1,28 @@
+Installation
+ - install CUDA Toolkit
+ - goto /lib/ReaDDyGPU_Cpp
+ - run make
+
+
+Usage
+ - in your simulation folder (e.g. /test/ReaDDyPaperReaDDyGPU)
+ edit _run/runSimulation.sh
+        # edit the following line
+        (7)PROGRAMPATH=/path/to/your/ReaDDy/
+	(33)-core GPU \
+
+ edit specific parameter in /ReaDDy_input/
+        # in param_global.xml:
+        # the diffusion timestep in OpenMM and GPU dynamics core
+        <dtOpenMM>1e-10</dtOpenMM>
+
+    # Optional Parameters
+        # in param_global.xml:
+        # the CUDA device index, default 0
+        <cudaDeviceIndex>0</cudaDeviceIndex>
+
+f) run ReaDDyGPU
+    # change to test folder
+    cd /test/ReaDDyPaperReaDDyGPU/
+    ./run.sh
+
